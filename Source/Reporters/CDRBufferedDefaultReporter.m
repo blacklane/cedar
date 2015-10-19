@@ -16,7 +16,7 @@
 - (void)runDidComplete {
     [super runDidComplete];
 
-    printf("%s", [self.buffer UTF8String]);
+    fprintf(stdout, "%s", [self.buffer UTF8String]);
 }
 
 - (void)logText:(NSString *)linePartial {

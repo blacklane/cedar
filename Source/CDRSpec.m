@@ -179,13 +179,13 @@ void fail(NSString *reason) {
         [[children objectAtIndex:bestAddressIndex] setFocused:YES];
     } else if (error.domain == kCDRSymbolicatorErrorDomain) {
         if (error.code == kCDRSymbolicatorErrorNotAvailable) {
-            printf("Spec location symbolication is not available.\n");
+            fprintf(stdout, "Spec location symbolication is not available.\n");
         } else if (error.code == kCDRSymbolicatorErrorNotSuccessful) {
             NSString *details = [error.userInfo objectForKey:kCDRSymbolicatorErrorMessageKey];
-            printf("Spec location symbolication was not successful.\n"
+            fprintf(stdout, "Spec location symbolication was not successful.\n"
                    "Details:\n%s\n", details.UTF8String);
         } else {
-            printf("Spec location symbolication failed.\n");
+            fprintf(stdout, "Spec location symbolication failed.\n");
         }
     }
 }

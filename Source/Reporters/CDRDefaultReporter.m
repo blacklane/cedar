@@ -94,7 +94,7 @@
 
 #pragma mark Protected interface
 - (void)logText:(NSString *)linePartial {
-    printf("%s", [linePartial UTF8String]);
+    fprintf(stdout, "%s", [linePartial UTF8String]);
 }
 
 - (unsigned int)exampleCount {

@@ -43,21 +43,21 @@
 - (void)reportOnExample:(CDRExample *)example {
     switch (example.state) {
         case CDRExampleStatePassed:
-            printf("%s\n%s\n",
+            fprintf(stdout, "%s\n%s\n",
                     [[self startedMessageForExample:example] cStringUsingEncoding:NSUTF8StringEncoding],
                     [[self finishedMessageForExample:example] cStringUsingEncoding:NSUTF8StringEncoding]);
             break;
         case CDRExampleStatePending:
-            printf("%s\n", [[self pendingMessageForExample:example] cStringUsingEncoding:NSUTF8StringEncoding]);
+            fprintf(stdout, "%s\n", [[self pendingMessageForExample:example] cStringUsingEncoding:NSUTF8StringEncoding]);
             [pendingMessages_ addObject:[super pendingMessageForExample:example]];
             break;
         case CDRExampleStateSkipped:
-            printf("%s\n", [[self skippedMessageForExample:example] cStringUsingEncoding:NSUTF8StringEncoding]);
+            fprintf(stdout, "%s\n", [[self skippedMessageForExample:example] cStringUsingEncoding:NSUTF8StringEncoding]);
             [skippedMessages_ addObject:[super skippedMessageForExample:example]];
             break;
         case CDRExampleStateError:
         case CDRExampleStateFailed:
-            printf("%s\n%s\n%s\n",
+            fprintf(stdout, "%s\n%s\n%s\n",
                    [[self startedMessageForExample:example] cStringUsingEncoding:NSUTF8StringEncoding],
                    [[self failureMessageForExample:example] cStringUsingEncoding:NSUTF8StringEncoding],
                    [[self finishedMessageForExample:example] cStringUsingEncoding:NSUTF8StringEncoding]);

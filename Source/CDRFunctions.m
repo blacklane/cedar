@@ -139,7 +139,7 @@ NSArray *CDRReporterClassesFromEnv(const char *defaultReporterClassName) {
     for (NSString *reporterClassName in reporterClassNames) {
         Class reporterClass = [NSClassFromString(reporterClassName) retain];
         if (!reporterClass) {
-            printf("***** The specified reporter class \"%s\" does not exist. *****\n", [reporterClassName cStringUsingEncoding:NSUTF8StringEncoding]);
+            fprintf(stdout, "***** The specified reporter class \"%s\" does not exist. *****\n", [reporterClassName cStringUsingEncoding:NSUTF8StringEncoding]);
             return nil;
         }
         [reporterClasses addObject:reporterClass];

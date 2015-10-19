@@ -97,14 +97,14 @@
     NSArray *sortedExamplePairs = [[[examplePairs sortedArrayUsingSelector:@selector(compare:)] reverseObjectEnumerator] allObjects];
     sortedExamplePairs = [sortedExamplePairs subarrayWithRange:NSMakeRange(0, MIN(numberOfResultsToShow, sortedExamplePairs.count))];
 
-    printf("\n%d Slowest Tests\n\n", (int)sortedExamplePairs.count);
+    fprintf(stdout, "\n%d Slowest Tests\n\n", (int)sortedExamplePairs.count);
     for (CDRRunTimeTitlePair *pair in sortedExamplePairs) {
-        printf("%s\n\n", pair.formattedDescription.UTF8String);
+        fprintf(stdout, "%s\n\n", pair.formattedDescription.UTF8String);
     }
 
-    printf("\n%d Slowest Top-Level Groups\n\n", (int)sortedRootPairs.count);
+    fprintf(stdout, "\n%d Slowest Top-Level Groups\n\n", (int)sortedRootPairs.count);
     for (CDRRunTimeTitlePair *pair in sortedRootPairs) {
-        printf("%s\n\n", pair.formattedDescription.UTF8String);
+        fprintf(stdout, "%s\n\n", pair.formattedDescription.UTF8String);
     }
 }
 
